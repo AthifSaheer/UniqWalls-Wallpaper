@@ -11,7 +11,7 @@
         </button>
         <h3 id="uniq-name">Uniq Walls</h3><br>
         <h5 id="motto">Powered by creators everywhere.</h5>
-        <p id="trending">Trending:flower, wallpapers, backgrounds, happy, love, 4K</p>
+        <p id="trending">Trending:flower, wallpapers, backgrounds, happy</p>
     </form>
 </div>
 
@@ -29,19 +29,35 @@
 <div class="row tm-mb-90 tm-gallery" id="img-div">
     {% for img in images %}
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-            <a href="{% get_media_prefix %}" download="{{ img.title }}.jpg">
-                <img src="{{ img.image.url }}" alt="Image" class="img-fluid">
-                <i class="far fa-arrow-alt-circle-down"></i>
+            <img src="{{ img.image.url }}" alt="Image" class="img-fluid">
+            <a href="{% get_media_prefix %}{{ img.image }}" download="{{ img.title }}.jpg">
+                <i style="float: right;" class="fas fa-download fa-lg mt-2"></i>
             </a>
-            <div class="d-flex justify-content-between tm-text-gray">
-                <span class="tm-text-gray-light">{{ img.date }}</span>
-                <span>{{ img.view_count }} views</span>
-            </div>
+            <span>{{ img.view_count }} views</span><br>
+            <span class="tm-text-gray-light">{{ img.date }}</span>
+            <!-- <div class="d-flex justify-content-betwee tm-text-gray">
+            </div> -->
         </div>
     {% endfor %}
-
 </div>
 
+<div class="container-fluid tm-container-content tm-mt-60">
+
+        <!-- row -->
+        <div class="row tm-mb-90">
+            <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
+                <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
+                <div class="tm-paging d-flex">
+                    <a href="javascript:void(0);" class="active tm-paging-link">1</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">2</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">3</a>
+                    <a href="javascript:void(0);" class="tm-paging-link">4</a>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
+            </div>            
+        </div>
+    </div> <!-- container-fluid, tm-container-content -->
+    
 <style>
     .container {
       position: relative;
@@ -73,17 +89,17 @@
     #uniq-name {
         position: absolute;
         margin-top: -82px;
-        color: rgb(253, 253, 253);
+        color: rgb(255, 255, 255);
         z-index: 10;
     }
     #motto {
         position: absolute;
         margin-top: -40px;
-        color: white;
+        color: rgb(255, 255, 255);
     }
     #trending {
         position: absolute;
-        color: white;
+        color: rgb(255, 255, 255);
         margin-top: 60px;
     }
     #search-form {
@@ -93,6 +109,9 @@
     }
     #img-div {
         padding: 10px;
+    }
+    .fa-download {
+        color: rgba(1, 71, 112, 0.678);
     }
     </style>
     

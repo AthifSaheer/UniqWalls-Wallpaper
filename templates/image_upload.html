@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+
+<p>ss</p>
+<p>ss</p>
+    <div class="container col-md-5 border border-dark mb-4">
+        <h3 class="text-primary">Upload 4k Images</h3>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-outline-primary btn-md btn-block mt-2 mb-2" type="submit">Submit</button>
+        </form>
+        <a href="{% url 'adminpage' %}"><button class="btn btn-outline-warning btn-md btn-block mt-2 mb-2" type="submit">Cancle</button></a>
+    </div>
+
+{% endblock photos %}
+
+</html>

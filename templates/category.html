@@ -12,10 +12,13 @@
         {% for cat in category.image_set.all %}
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <img src="{{ cat.image.url }}" alt="Image" class="img-fluid">
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">{{ cat.date }}</span>
-                    <span>{{ cat.view_count }} views</span>
-                </div>
+                <a href="{% get_media_prefix %}{{ img.image }}" download="{{ img.title }}.jpg">
+                    <i style="float: right;" class="fas fa-download fa-lg mt-2"></i>
+                </a>
+                <span>{{ cat.view_count }} views</span><br>
+                <span class="tm-text-gray-light">{{ cat.date }}</span>
+                {% comment %} <div class="d-flex justify-content-between tm-text-gray">
+                </div> {% endcomment %}
             </div>
         {% endfor %}
     {% endfor %}
@@ -25,6 +28,9 @@
     #img-div {
         margin-top: 20px;
         padding: 10px;
+    }
+    .fa-download {
+        color: rgba(1, 71, 112, 0.678);
     }
 </style>
 {% endblock photos %}

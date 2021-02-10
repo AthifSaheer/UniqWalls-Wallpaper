@@ -42,6 +42,15 @@ class AdminPageView(CreateView):
         form.save()
         return super().form_valid(form)
 
+class ImageUploadView(CreateView):
+    template_name = 'image_upload.html'
+    form_class = PictureAddingForm
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
 class CategoryAddingView(CreateView):
     template_name = 'category_adding.html'
     form_class = CategoryAddingForm
