@@ -1,74 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog-Z Video Detail Page</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
-<!--
-    
-TemplateMo 556 Catalog-Z
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
 
-https://templatemo.com/tm-556-catalog-z
-
--->
-</head>
-<body>
-    <!-- Page Loader -->
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-
-    </div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-film mr-2"></i>
-                Catalog-Z
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1" href="index.html">Photos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2 active" aria-current="page" href="videos.html">Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="contact.html">Contact</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
-        <form class="d-flex tm-search-form">
-            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success tm-search-btn" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
+<p>ss</p>
+<p>ss</p>
+    <div class="container">
+        <form method="POST">
+        {% csrf_token %}
+            {{form}}
+            <button class="btn btn-info btn-md mt-2" type="submit">Submit</button>
         </form>
+        
     </div>
 
-    <div class="container-fluid tm-container-content tm-mt-60">
+    {% comment %} <div class="container-fluid tm-container-content tm-mt-60"> {% endcomment %}
         <div class="row mb-4">
             <h2 class="col-12 tm-text-primary">Video title goes here</h2>
         </div>
         <div class="row tm-mb-90">            
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
                 <video autoplay muted loop controls id="tm-video">
-                    <source src="video/hero.mp4" type="video/mp4">
+                    <source src="{% static 'video/hero.mp4' %}" type="video/mp4">
                 </video>  
             </div>
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
@@ -115,7 +67,7 @@ https://templatemo.com/tm-556-catalog-z
         <div class="row mb-3 tm-gallery">
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-01.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Hangers</h2>
                         <a href="#">View more</a>
@@ -128,7 +80,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-02.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-02.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Perfumes</h2>
                         <a href="#">View more</a>
@@ -141,7 +93,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-03.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-03.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Clocks</h2>
                         <a href="#">View more</a>
@@ -154,7 +106,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-04.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-04.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Plants</h2>
                         <a href="#">View more</a>
@@ -167,7 +119,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-05.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-05.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Morning</h2>
                         <a href="#">View more</a>
@@ -180,7 +132,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-06.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-06.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Pinky</h2>
                         <a href="#">View more</a>
@@ -193,7 +145,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-07.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-07.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>Bus</h2>
                         <a href="#">View more</a>
@@ -206,7 +158,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="img/img-08.jpg" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/img-08.jpg' %}" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2>New York</h2>
                         <a href="#">View more</a>
@@ -257,12 +209,6 @@ https://templatemo.com/tm-556-catalog-z
             </div>
         </div>
     </footer>
-    
-    <script src="js/plugins.js"></script>
-    <script>
-        $(window).on("load", function() {
-            $('body').addClass('loaded');
-        });
-    </script>
-</body>
+{% endblock photos %}
+
 </html>
