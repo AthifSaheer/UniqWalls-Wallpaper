@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+
+<div class="tm-hero d-flex justify-content-center align-items-center" id="serch-div" data-parallax="scroll" id="banner">
+    <img src="../static/img/hero.jpg" style="width: 100%; height: 450px;" alt="image">
+    <form class="d-flex tm-search-form" id="search-form">
+        <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success tm-search-btn" type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+        <h3 id="uniq-name">Uniq Walls</h3><br>
+        <h5 id="motto">Powered by creators everywhere.</h5>
+        <p id="trending">Trending:flower, wallpapers, backgrounds, happy, love</p>
+    </form>
+</div>
+
+<div class="row mb-4" id="img-div">
+    <h2 class="col-6 tm-text-primary">
+        Latest Photos
+    </h2>
+    <div class="col-6 d-flex justify-content-end align-items-center">
+        <form action="" class="tm-text-primary">
+            Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"> of 200
+        </form>
+    </div>
+</div>
+
+<div class="row tm-mb-90 tm-gallery" id="img-div">
+    {% for img in images %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <a href="{% get_media_prefix %}" download="{{ img.title }}.jpg">
+                <img src="{{ img.image.url }}" alt="Image" class="img-fluid">
+                <i class="far fa-arrow-alt-circle-down"></i>
+            </a>
+            <div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-light">{{ img.date }}</span>
+                <span>{{ img.view_count }} views</span>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+<style>
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .container img {
+      width: 100%;
+      height: auto;
+    }
+    
+    #dwn-btn {
+      position: absolute;
+      top: 65%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: rgb(27, 177, 247);
+      color: white;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    #uniq-name {
+        position: absolute;
+        margin-top: -82px;
+        color: rgb(253, 253, 253);
+        z-index: 10;
+    }
+    #motto {
+        position: absolute;
+        margin-top: -40px;
+        color: white;
+    }
+    #trending {
+        position: absolute;
+        color: white;
+        margin-top: 60px;
+    }
+    #search-form {
+        position: absolute;
+        margin-top: 60px;
+        margin-top: 5px;
+    }
+    #img-div {
+        padding: 10px;
+    }
+    </style>
+    
+    
+
+{% endblock %}
+
+
+
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+    <figure class="effect-ming tm-video-item">
+        <img src="{% static 'img/img-06.jpg' %}" alt="Image" class="img-fluid">
+        <figcaption class="d-flex align-items-center justify-content-center">
+            <a href="httsp://www.google.com"><h2>Download</h2></a>
+            <a href="photo-detail.html">View more</a>
+        </figcaption>                    
+    </figure>
+    <div class="d-flex justify-content-between tm-text-gray">
+        <span class="tm-text-gray-light">18 Oct 2020</span>
+        <span>9,906 views</span>
+    </div>
+</div>
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+    <a download="custom-filename.jpg" href="{% static '../dynamic_img' %}" title="ImageName"></a>
+        <img src="{% static 'img/img-09.jpg' %}" alt="Image" class="img-fluid">
+    </a>
+    <figure class="effect-ming tm-video-item">
+        
+        <!-- <figcaption class="d-flex align-items-center justify-content-center">
+            <a href="httsp://www.google.com"><h2>Download</h2></a>
+            <a href="photo-detail.html">View more</a>
+        </figcaption>                     -->
+    </figure>
+    <div class="d-flex justify-content-between tm-text-gray">
+        <span class="tm-text-gray-light">18 Oct 2020</span>
+        <span>9,906 views</span>
+    </div>
+</div>
+
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+    <figure class="effect-ming tm-video-item">
+        <img src="{% static 'img/img-12.jpg' %}" alt="Image" class="img-fluid">
+        <figcaption class="d-flex align-items-center justify-content-center">
+            <a href="httsp://www.google.com"><h2>Download</h2></a>
+            <a href="photo-detail.html">View more</a>
+        </figcaption>                    
+    </figure>
+    <div class="d-flex justify-content-between tm-text-gray">
+        <span class="tm-text-gray-light">18 Oct 2020</span>
+        <span>9,906 views</span>
+    </div>
+</div>
