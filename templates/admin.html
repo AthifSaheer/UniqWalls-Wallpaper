@@ -4,11 +4,17 @@
 
 <p>ss</p>
 <p>ss</p>
-<div class="container col-md-5 mb-4">
-    <a class="btn btn-outline-info btn-md btn-block" href="{% url 'categoryaddingview' %}">Create Category</a><br>
-    <a class="btn btn-outline-warning btn-md btn-block" href="{% url 'imageuploadview' %}">Upload Image</a>
+
+<h3 class="text-center" style="color: purple;">Admin Panel*</h3><hr>
+
+<div class="container col-md-12 mb-3 p-3">
+    <a class="btn btn-outline-info btn-md col-md-5" href="{% url 'categoryaddingview' %}">Create Category</a>
+    <a class="btn btn-outline-primary btn-md col-md-5" href="{% url 'imageuploadview' %}">Upload Image</a>
+    <a class="btn btn-outline-info btn-md col-md-5 mt-2" href="{% url 'categorydeleteview' %}">Delete Category</a>
+    <a class="btn btn-outline-primary btn-md col-md-5 mt-2" href="{% url 'imagedeleteview' %}">Delete Image</a>
 </div>
 
+<p class="text-danger ml-5">* This for only admins, Users don't use this feature or this page ! !</p>
 {% endblock photos %}
 
 </html>

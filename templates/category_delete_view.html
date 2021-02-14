@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+<p>ss</p>
+<p>ss</p>
+
+<div class="container">
+    <div class="mb-5 table col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for cat in categories %}
+                  <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td><h4>{{ cat.title }}</h4></td>
+                    <td>
+                        <a href="{% url 'categorydeletebutton' cat.pk %}">
+                            <i class="fas fa-trash-alt fa-lg mt-2"></i>
+                        </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+
+{% endblock photos %}

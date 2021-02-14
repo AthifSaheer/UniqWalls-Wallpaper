@@ -2,11 +2,15 @@
 {% load static %}
 {% block photos %}
 
+<meta name="theme-color" content="#009578">
+<link rel="manifest" href="../staticfiles/json/manifest.json">
+
+
 <div class="tm-hero d-flex justify-content-center align-items-center" id="serch-div" data-parallax="scroll" id="banner">
     <img src="../static/img/hero.jpg" style="width: 100%; height: 450px;" alt="image">
     <form class="d-flex tm-search-form" id="search-form">
         <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success tm-search-btn" type="submit">
+        <button class="btn btn-outline-info tm-search-btn" type="submit">
             <i class="fas fa-search"></i>
         </button>
         <h3 id="uniq-name">Uniq Walls</h3><br>
@@ -115,6 +119,8 @@
     }
     </style>
     
+<script src="{% static '../staticfiles/js/script.js' %}"></script>
+
     
 
 {% endblock %}

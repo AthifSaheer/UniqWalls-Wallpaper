@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+<p>ss</p>
+<p>ss</p>
+
+<div class="row tm-mb-90 tm-gallery m-2" id="img-div">
+    {% for img in images %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+            <img src="{{ img.image.url }}" alt="Image" class="img-fluid">
+            <a href="{% url 'imagedeletebutton' img.pk %}">
+                <i style="float: right;" class="fas fa-trash-alt fa-lg mt-2"></i>
+            </a>
+            <span>{{ img.view_count }} views</span><br>
+            <span class="tm-text-gray-light">{{ img.date }}</span>
+            <!-- <div class="d-flex justify-content-betwee tm-text-gray">
+            </div> -->
+        </div>
+    {% endfor %}
+</div>
+{% endblock photos %}

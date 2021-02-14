@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+<p>ss</p>
+<p>ss</p>
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>Do u want delete this image???</h2>
+        <button class="btn btn-outline-info">Yaah</button>
+    </form>
+    <button class="btn btn-outline-primary">Nooop</button>
+</div>
+{% endblock photos %}

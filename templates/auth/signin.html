@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+
+<p>ss</p>
+<p>ss</p>
+
+<div class="container shadow">
+    <h3 class="text-center" style="color: purple;">Sign In</h3><hr>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-info text-light">Submit</button>
+    </form>
+    Don't have a account !. <a href="{% url 'signup' %}" class="mb-4">Then Click here</a>
+    
+</div>
+
+{% endblock photos %}
+
+
+</form>
