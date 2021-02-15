@@ -127,6 +127,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/assets')] #python manage.p
 MEDIA_URL = '/dynamic_img/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 

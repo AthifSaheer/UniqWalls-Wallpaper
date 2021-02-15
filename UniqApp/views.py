@@ -3,6 +3,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
+from django.contrib.auth.models import User
 from django.views.generic import *
 from .models import *
 from .forms import *
@@ -96,8 +97,27 @@ class CategoryDeleteButton(DeleteView):
     model = Category
     success_url = "/adminpage"
 
+def SignupView(request):
+    form = CustomSignup()
+    if request.method == 'POST':
+        form = CustomSignup(request.POST)
+        if form.is_valid():
+            form.save()
+            print("User succesfully registered")
+            return redirect('login')
+    return render(request, "registration/signup.html", {'form':form})
+    
+class ProfileView(TemplateView):
+    template_name = 'profile.html'
+
+
+
+
+
+"""
+
 class SigninView(FormView):
-    template_name = 'auth/signin.html'
+    template_name = 'registration/login.html'
     form_class = OwnUserLoginForm
     success_url = '/'
 
@@ -105,26 +125,25 @@ class SigninView(FormView):
         uname = form.cleaned_data.get("username")
         pword = form.cleaned_data["password"]
         usr = authenticate(username=uname, password=pword)
-        if usr is not None:
+        if usr is not None and User.objects.filter(username=uname, password=pword): #and User.objects.filter(user=usr).exists()
             login(self.request, usr)
         else:
             return render(self.request, self.template_name, {"form":self.form_class, "error":"Invalid Credentials"})
         return super().form_valid(form)
 
-class SignupView(FormView):
-    template_name = 'auth/signup.html'
-    form_class = OwnUserRegisterForm
-    success_url = '/signin'
+    def get_success_url(self):
+        if "next" in self.request.GET:
+            next_url = self.request.GET.get("next")
+            return next_url
+        else:
+            return self.success_url
 
-    def form_valid(slef, form):
-        username = form.cleaned_data.get('username')
-        email = form.cleaned_data.get('email')
-        password = form.cleaned_data.get('password1')
-        user = User.objects.create(username=username, email=email, password=password)
-        user.save()
-        return super().form_valid(form)
+
 
 class LogoutView(View):
     def get(self,request):
         x = logout(request)
         return redirect('home')
+    
+
+"""

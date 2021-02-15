@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from . import views
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -18,7 +19,6 @@ urlpatterns = [
     path('category-delete-button/<int:pk>/', CategoryDeleteButton.as_view(), name="categorydeletebutton"),
     
     # Authentication -------------------------------
-    path('signin', SigninView.as_view(), name="signin"),
-    path('signup', SignupView.as_view(), name="signup"),
-    path('logout', LogoutView.as_view(), name="logout"),
+    path('signup', views.SignupView, name="signup"),
+    path('accounts/profile/', ProfileView.as_view(), name="accountsprofile"),
 ]

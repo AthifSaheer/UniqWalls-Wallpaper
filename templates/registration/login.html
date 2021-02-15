@@ -6,14 +6,20 @@
 <p>ss</p>
 
 <div class="container shadow">
-    <h3 class="text-center" style="color: purple;">Sign In</h3><hr>
+    <h3 class="text-center" style="color: purple;">SignIn</h3><hr>
     
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+
+        {% if error %}
+            <li style="color: red;">{{error}}</li>
+        {% endif %}
+
         <button class="btn btn-info text-light">Submit</button>
     </form>
-    Don't have a account !. <a href="{% url 'signup' %}" class="mb-4">Then Click here</a>
+    Don't have a account !. <a href="{% url 'signup' %}">Then Click here</a><br>
+    <a href="">Password Forgotten !</a>
     
 </div>
 

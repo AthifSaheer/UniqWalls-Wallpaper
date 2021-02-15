@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block photos %}
+
+<p>ss</p>
+<p>ss</p>
+
+<div class="container shadow">
+    <h3 class="text-center" style="color: purple;">Profile</h3><hr>
+    <ul class="list-group">
+        <li class="list-group-item">Name: {{ user }}</li>
+        <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item">First Name: {{ user.first_name }}</li>
+        <li class="list-group-item">Last Name: {{ user.last_name}}</li>
+      </ul>
+</div>
+
+{% endblock photos %}
+
+
+</form>
